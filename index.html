@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eray Raadin — Buugga Raadinta Erayada Af Soomaaliga (15 Halxiraale)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap');
+  :root {
+    --ink:#2C2825;--ink-mid:#4A4440;--terracotta:#C2613A;--sand:#E8DDD0;
+    --sand-light:#F5F0EA;--cream:#FAF7F3;--white:#FFFFFF;--text-mid:#5C5248;
+    --border:#D9CFC4;--highlight:rgba(194,97,58,0.22);--muted:#8C7E74;
+    --easy:#4A7C59;--medium:#B8832A;--hard:#A63228;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Nunito',Arial,sans-serif;background:#E8E2DB;color:var(--ink);}
+
+  /* PAGE — watermark on every page */
+  .page{width:210mm;min-height:297mm;margin:0 auto 24px;background:var(--white);
+    display:flex;flex-direction:column;overflow:hidden;
+    box-shadow:0 4px 32px rgba(0,0,0,0.14);page-break-after:always;position:relative;}
+
+  /* ── COVER ── */
+  .cover{background:var(--cream);min-height:297mm;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;padding:10mm 18mm 16mm;
+    position:relative;overflow:hidden;}
+  .cover::before{content:'';position:absolute;top:0;left:0;right:0;height:11px;background:var(--terracotta);}
+  .cover::after{content:'';position:absolute;bottom:0;left:0;right:0;height:7px;background:var(--sand);}
+  .cover-sideL{position:absolute;left:11mm;top:11px;bottom:7px;width:4px;
+    background:linear-gradient(to bottom,var(--terracotta),var(--sand));border-radius:2px;opacity:0.38;}
+  .cover-sideR{position:absolute;right:11mm;top:11px;bottom:7px;width:4px;
+    background:linear-gradient(to bottom,var(--terracotta),var(--sand));border-radius:2px;opacity:0.38;}
+
+  .cover-brand{font-size:13px;font-weight:800;letter-spacing:6px;text-transform:uppercase;
+    color:var(--muted);margin-bottom:14px;text-align:center;}
+  .cover-logo{margin-bottom:14px;}
+  .cover-ornament{width:90px;height:2.5px;background:var(--terracotta);margin:0 auto 14px;border-radius:2px;}
+
+  .cover-title-main{font-family:'Playfair Display',serif;font-size:50px;font-weight:900;color:var(--ink);
+    text-align:center;letter-spacing:-1px;line-height:1.0;margin-bottom:4px;}
+  .cover-title-sub{display:block;font-family:'Nunito',sans-serif;font-size:10.5px;font-weight:700;
+    color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-top:8px;}
+  .cover-divider{width:100%;height:1px;background:var(--border);margin:12px 0;}
+
+  .cover-subtitle{font-size:12.5px;font-weight:600;color:var(--text-mid);text-align:center;
+    line-height:1.85;max-width:135mm;margin-bottom:14px;}
+  .cover-subtitle .so{font-size:11.5px;color:var(--muted);display:block;margin-top:3px;}
+
+  .cover-diff-row{display:flex;gap:9px;margin-bottom:14px;justify-content:center;flex-wrap:wrap;}
+  .cdiff{font-size:9.5px;font-weight:800;letter-spacing:0.8px;padding:5px 13px;border-radius:20px;text-align:center;}
+  .cdiff .en{display:block;}
+  .cdiff .so{display:block;font-size:8.5px;font-weight:700;opacity:0.75;margin-top:1px;}
+  .cdiff.e{background:rgba(74,124,89,0.11);color:var(--easy);border:1.5px solid var(--easy);}
+  .cdiff.m{background:rgba(184,131,42,0.11);color:var(--medium);border:1.5px solid var(--medium);}
+  .cdiff.h{background:rgba(166,50,40,0.10);color:var(--hard);border:1.5px solid var(--hard);}
+
+  .cover-tags{display:flex;gap:5px;flex-wrap:wrap;justify-content:center;margin-bottom:14px;}
+  .ctag{background:var(--sand);color:var(--ink-mid);font-size:8px;font-weight:800;
+    letter-spacing:1.2px;text-transform:uppercase;padding:4px 9px;border-radius:4px;text-align:center;}
+  .ctag .so{display:block;font-size:7px;opacity:0.7;text-transform:none;font-weight:700;letter-spacing:0.5px;}
+
+  /* Cover grid — spells ERAY RAADIN */
+  .cover-grid-wrap{margin-bottom:0;}
+  .cover-grid{display:grid;grid-template-columns:repeat(11,1fr);gap:3px;opacity:0.15;}
+  .cgc{width:20px;height:20px;border:1.5px solid var(--ink-mid);display:flex;align-items:center;
+    justify-content:center;font-size:8.5px;font-weight:900;color:var(--ink);border-radius:2px;}
+  .cgc.lit{opacity:1;border-color:var(--terracotta);color:var(--terracotta);}
+
+  .cover-footer{position:absolute;bottom:10mm;left:0;right:0;text-align:center;
+    font-size:8px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;font-weight:700;}
+  .cover-footer .so{font-size:7.5px;display:block;margin-top:2px;letter-spacing:1px;}
+
+  /* ── PIRACY PAGE ── */
+  .piracy-page{background:var(--cream);min-height:297mm;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;padding:18mm 22mm;position:relative;overflow:hidden;}
+  .piracy-page::before{content:'';position:absolute;top:0;left:0;right:0;height:11px;background:var(--hard);}
+  .piracy-page::after{content:'';position:absolute;bottom:0;left:0;right:0;height:7px;background:var(--sand);}
+  .piracy-icon{font-size:44px;margin-bottom:16px;}
+  .piracy-title{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:var(--hard);text-align:center;margin-bottom:4px;}
+  .piracy-title-so{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--hard);text-align:center;margin-bottom:4px;opacity:0.8;}
+  .piracy-subtitle{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--muted);text-align:center;margin-bottom:6px;}
+  .piracy-divider{width:80px;height:3px;background:var(--hard);margin:0 auto 20px;border-radius:2px;}
+
+  .piracy-box{background:var(--white);border:1.5px solid var(--border);border-left:4px solid var(--hard);
+    border-radius:6px;padding:18px 22px;max-width:145mm;margin-bottom:16px;width:100%;}
+  .piracy-row{display:grid;grid-template-columns:1fr 1fr;gap:0 20px;margin-bottom:10px;}
+  .piracy-row:last-child{margin-bottom:0;}
+  .piracy-col-en{font-size:11px;font-weight:600;color:var(--text-mid);line-height:1.75;}
+  .piracy-col-so{font-size:11px;font-weight:600;color:var(--ink-mid);line-height:1.75;
+    border-left:2px solid var(--border);padding-left:14px;}
+  .piracy-col-en strong,.piracy-col-so strong{color:var(--ink);font-weight:800;}
+
+  .piracy-legal{background:rgba(166,50,40,0.06);border:1px solid rgba(166,50,40,0.2);
+    border-radius:6px;padding:12px 18px;max-width:145mm;text-align:center;width:100%;}
+  .piracy-legal-en{font-size:9.5px;font-weight:600;color:var(--hard);line-height:1.7;margin-bottom:6px;}
+  .piracy-legal-so{font-size:9px;font-weight:600;color:var(--hard);line-height:1.7;opacity:0.85;}
+
+  .piracy-contact{margin-top:16px;font-size:9.5px;font-weight:700;color:var(--muted);text-align:center;}
+  .piracy-contact .so{font-size:9px;display:block;margin-top:3px;opacity:0.8;}
+  .piracy-brand{margin-top:20px;font-size:10px;font-weight:800;letter-spacing:5px;
+    text-transform:uppercase;color:var(--muted);}
+
+  /* ── PUZZLE HEADER ── */
+  .pheader{background:var(--ink);padding:10px 16px 9px;display:flex;align-items:center;
+    justify-content:space-between;flex-shrink:0;gap:8px;}
+  /* LEFT — Halxiraale on top, Puzzle number below */
+  .pheader-left{display:flex;flex-direction:column;align-items:flex-start;gap:3px;min-width:82px;}
+  .pheader-halxiraale{font-size:9.5px;font-weight:800;letter-spacing:1.5px;
+    text-transform:uppercase;color:rgba(255,255,255,0.6);}
+  .pheader-puzzle{font-size:8px;font-weight:700;letter-spacing:1px;
+    text-transform:uppercase;color:rgba(255,255,255,0.32);}
+  /* CENTRE — category Somali large, English bold below */
+  .ptitle{text-align:center;flex:1;}
+  .ptitle-so{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;
+    color:var(--sand-light);letter-spacing:0.5px;line-height:1.1;}
+  .ptitle-en{font-size:12px;font-weight:800;color:rgba(255,255,255,0.7);
+    letter-spacing:1.5px;text-transform:uppercase;margin-top:5px;}
+  /* RIGHT — single coloured difficulty bubble — Somali first (bold), English below */
+  .pheader-right{display:flex;flex-direction:column;align-items:flex-end;gap:0;min-width:82px;}
+  .pdiff-bubble{display:flex;flex-direction:column;align-items:center;
+    padding:5px 12px;border-radius:12px;gap:2px;}
+  .pdiff-bubble .dso{font-size:10px;font-weight:900;letter-spacing:0.8px;
+    text-transform:uppercase;line-height:1.2;}
+  .pdiff-bubble .den{font-size:8px;font-weight:500;letter-spacing:1px;
+    text-transform:uppercase;line-height:1.2;opacity:0.7;}
+  .pdiff-bubble.easy{background:rgba(74,124,89,0.25);color:#80C89A;
+    border:1px solid rgba(74,124,89,0.35);}
+  .pdiff-bubble.medium{background:rgba(184,131,42,0.25);color:#E8C06A;
+    border:1px solid rgba(184,131,42,0.35);}
+  .pdiff-bubble.hard{background:rgba(200,60,50,0.25);color:#F08880;
+    border:1px solid rgba(200,60,50,0.35);}
+
+  /* ── BODY ── */
+  .pbody{flex:1;background:var(--sand-light);padding:7px 10px 6px;
+    display:flex;flex-direction:column;justify-content:space-between;gap:0;}
+
+  /* ── GRID ── */
+  .grid-wrap{display:flex;justify-content:center;align-items:center;flex:1;padding-bottom:7px;}
+  .grid-branded{position:relative;display:inline-block;}
+  /* TOP-LEFT corner stamp — on all grids */
+  .grid-branded::before{
+    content:'© CILMI PRESS';
+    position:absolute;top:-1px;left:0px;
+    font-family:'Nunito',sans-serif;font-size:6.5px;font-weight:800;
+    letter-spacing:1.5px;text-transform:uppercase;
+    color:var(--terracotta);opacity:0.55;
+    background:var(--white);padding:1px 4px;
+    border-bottom:1px solid rgba(194,97,58,0.2);
+    border-right:1px solid rgba(194,97,58,0.2);
+    z-index:6;pointer-events:none;
+  }
+  /* BOTTOM-RIGHT corner stamp — on all grids */
+  .grid-branded::after{
+    content:'© CILMI PRESS';
+    position:absolute;bottom:-1px;right:0px;
+    font-family:'Nunito',sans-serif;font-size:6.5px;font-weight:800;
+    letter-spacing:1.5px;text-transform:uppercase;
+    color:var(--terracotta);opacity:0.55;
+    background:var(--white);padding:1px 4px;
+    border-top:1px solid rgba(194,97,58,0.2);
+    border-left:1px solid rgba(194,97,58,0.2);
+    z-index:6;pointer-events:none;
+  }
+  /* ── WORD BANK ── */
+  .wbank{background:var(--white);border:1.5px solid var(--border);border-top:3.5px solid var(--terracotta);
+    border-radius:7px;padding:8px 12px 7px;flex-shrink:0;}
+  .wbank-title{font-size:9px;font-weight:900;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--terracotta);margin-bottom:0;display:flex;align-items:center;gap:8px;}
+  .wbank-title::after{content:'';flex:1;height:1px;background:var(--border);}
+  /* Watermark strip — sits in the gap between title and words. Looks like a rule line.
+     Contains copyright text at near-invisible opacity — captures in every screenshot
+     of the word bank, impossible to remove without cropping the title or first row. */
+  .wbank-wm{
+    width:100%;text-align:center;
+    font-family:'Nunito',sans-serif;font-size:6px;font-weight:800;
+    letter-spacing:3px;text-transform:uppercase;
+    color:rgba(194,97,58,0.18);
+    padding:3px 0 4px;
+    pointer-events:none;
+    user-select:none;
+    border-bottom:0.5px solid rgba(217,207,196,0.4);
+    margin-bottom:4px;
+  }
+  .wpair{padding:4px 0 3px 7px;border-left:2.5px solid var(--terracotta);
+    border-bottom:1px solid rgba(217,207,196,0.32);display:flex;flex-direction:column;gap:1px;}
+  .wpair-so{font-size:12.5px;font-weight:900;color:var(--ink);line-height:1.25;letter-spacing:0.3px;
+    text-transform:uppercase;}
+  .wpair-en{font-size:8.5px;font-weight:600;color:var(--text-mid);line-height:1.2;}
+  /* 5 columns so related words sit adjacent */
+  .wbank-items{display:grid;grid-template-columns:repeat(5,1fr);gap:3px 8px;}
+
+  table.grid{border-collapse:collapse;border:2px solid var(--ink-mid);
+    box-shadow:0 3px 14px rgba(44,40,37,0.09);}
+  table.grid td{width:27px;height:27px;text-align:center;vertical-align:middle;
+    font-family:'Nunito',monospace,sans-serif;font-size:13.5px;font-weight:800;color:var(--ink);
+    border:0.5px solid rgba(44,40,37,0.08);background:var(--white);line-height:1;padding:0;user-select:none;}
+  table.grid td.hl{background:var(--highlight);color:var(--terracotta);font-weight:900;}
+
+  /* ── FOOTER ── */
+  .pfooter{background:var(--ink);padding:5px 16px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;}
+  .pfooter-text{font-size:7px;font-weight:600;color:rgba(255,255,255,0.24);letter-spacing:0.4px;}
+  .pfooter-logo{font-size:7px;font-weight:800;color:rgba(232,221,208,0.42);letter-spacing:1.5px;}
+
+  /* ── ANSWER HEADER ── */
+  .aheader{background:var(--ink);padding:10px 16px 8px;display:flex;align-items:center;
+    justify-content:space-between;flex-shrink:0;gap:10px;}
+  .abadge{background:rgba(232,221,208,0.10);border:1px solid rgba(232,221,208,0.24);color:var(--sand);
+    font-size:7.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;
+    padding:3px 9px;border-radius:10px;white-space:nowrap;}
+  .atitle-so{font-family:'Playfair Display',serif;font-size:18px;font-weight:900;color:var(--sand-light);text-align:center;}
+  .atitle-sub{font-size:8px;font-weight:600;color:rgba(255,255,255,0.32);text-align:center;
+    letter-spacing:1.5px;text-transform:uppercase;margin-top:2px;}
+
+  /* ── FOOTNOTE ── */
+  .wbank-footer{font-size:8px;font-weight:600;color:var(--muted);margin-top:5px;
+    padding-top:4px;border-top:1px solid var(--border);line-height:1.5;}
+  .wbank-footer .ast{color:var(--terracotta);font-weight:900;}
+
+  /* ── COVER LOGO ── */
+  .cover-logo-mark{margin-bottom:12px;display:flex;justify-content:center;}
+
+  /* ── BACK PAGE ── */
+  .back-page{background:var(--ink);min-height:297mm;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;padding:20mm 22mm;position:relative;overflow:hidden;}
+  .back-page::before{content:'';position:absolute;top:0;left:0;right:0;height:10px;background:var(--terracotta);}
+  .back-page::after{content:'';position:absolute;bottom:0;left:0;right:0;height:6px;background:rgba(232,221,208,0.2);}
+  .back-logo{margin-bottom:28px;opacity:0.9;}
+  .back-title{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;
+    color:var(--sand-light);text-align:center;margin-bottom:6px;}
+  .back-title-so{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;
+    color:rgba(232,221,208,0.6);text-align:center;margin-bottom:24px;}
+  .back-divider{width:70px;height:2px;background:var(--terracotta);margin:0 auto 28px;border-radius:2px;}
+  .back-message{background:rgba(255,255,255,0.04);border:1px solid rgba(232,221,208,0.12);
+    border-left:3px solid var(--terracotta);border-radius:6px;
+    padding:20px 24px;max-width:145mm;width:100%;margin-bottom:20px;}
+  .back-message-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:12px;}
+  .back-message-row:last-child{margin-bottom:0;}
+  .back-col-en{font-size:11px;font-weight:500;color:rgba(232,221,208,0.75);line-height:1.75;}
+  .back-col-so{font-size:11px;font-weight:500;color:rgba(232,221,208,0.55);line-height:1.75;
+    border-left:1px solid rgba(232,221,208,0.12);padding-left:16px;}
+  .back-col-en strong,.back-col-so strong{color:var(--sand-light);font-weight:700;}
+  .back-slogan{font-family:'Playfair Display',serif;font-size:15px;font-weight:400;
+    color:rgba(232,221,208,0.5);text-align:center;font-style:italic;margin-bottom:28px;}
+  .back-footer-brand{font-family:'Nunito',sans-serif;font-size:10px;font-weight:800;
+    letter-spacing:5px;text-transform:uppercase;color:rgba(232,221,208,0.3);text-align:center;}
+
+  @media print{
+    body{background:white;}
+    .page{margin:0;box-shadow:none;width:100%;min-height:100vh;}
+    @page{margin:0;size:A4;}
+  }
+  @media screen{body{padding:24px 0;}}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════
+     COVER PAGE
+═══════════════════════ -->
+<div class="page">
+<div class="cover">
+  <div class="cover-sideL"></div><div class="cover-sideR"></div>
+
+  <!-- V1 Light Logo — with CILMI / rule / PRESS below circle -->
+  <div class="cover-logo-mark">
+    <svg width="162" height="202" viewBox="0 0 280 350">
+      <!-- Shadow -->
+      <circle cx="142" cy="78" r="68" fill="#D4C8BE"/>
+      <!-- Circle -->
+      <circle cx="140" cy="76" r="68" fill="#FAF7F3"/>
+      <circle cx="140" cy="76" r="68" fill="none" stroke="#C2613A" stroke-width="0.8" opacity="0.18"/>
+      <!-- RIGHT PAGE — equal width, shaded -->
+      <path d="M140 46 Q157 42 179 47 L179 104 Q157 100 140 104 Z" fill="#C2613A" opacity="0.13"/>
+      <path d="M140 46 Q157 42 179 47 L179 104 Q157 100 140 104 Z" fill="none" stroke="#1A1714" stroke-width="1.4" stroke-linejoin="round" opacity="0.22"/>
+      <!-- LEFT PAGE — equal width, bold C -->
+      <path d="M140 46 Q123 42 101 47 L101 104 Q123 100 140 104 Z" fill="#EDE6DC"/>
+      <path d="M140 46 Q123 42 101 47 L101 104 Q123 100 140 104 Z" fill="none" stroke="#1A1714" stroke-width="3" stroke-linejoin="round"/>
+      <!-- Lines on left page -->
+      <line x1="110" y1="60" x2="134" y2="59" stroke="#C2613A" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
+      <line x1="110" y1="70" x2="134" y2="69" stroke="#C2613A" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
+      <line x1="110" y1="80" x2="134" y2="79" stroke="#C2613A" stroke-width="1.6" stroke-linecap="round" opacity="0.38"/>
+      <line x1="110" y1="90" x2="127" y2="89" stroke="#C2613A" stroke-width="1.6" stroke-linecap="round" opacity="0.22"/>
+      <!-- Bottom curve -->
+      <path d="M101 104 Q140 114 179 104" stroke="#1A1714" stroke-width="2" fill="none" opacity="0.18" stroke-linecap="round"/>
+      <!-- SPINE -->
+      <line x1="140" y1="45" x2="140" y2="105" stroke="#C2613A" stroke-width="4.5" stroke-linecap="round"/>
+      <!-- P BOWL -->
+      <path d="M140 46 A20 20 0 0 1 140 86" stroke="#C2613A" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+
+      <!-- CILMI — 24px gap below circle bottom (y=144) -->
+      <text x="140" y="178"
+        text-anchor="middle"
+        font-family="Libre Baskerville, Georgia, serif"
+        font-size="28" font-weight="700"
+        fill="#1A1714" letter-spacing="5">CILMI</text>
+
+      <!-- Solid terracotta rule -->
+      <line x1="58" y1="188" x2="222" y2="188"
+        stroke="#C2613A" stroke-width="1.4" opacity="0.55"/>
+
+      <!-- PRESS — ultralight spaced -->
+      <text x="140" y="210"
+        text-anchor="middle"
+        font-family="DM Sans, Arial, sans-serif"
+        font-size="14" font-weight="200"
+        fill="#C2613A" letter-spacing="12">PRESS</text>
+    </svg>
+  </div>
+
+  <div class="cover-ornament"></div>
+
+  <div class="cover-title-main">Eray Raadin
+    <span class="cover-title-sub">Buugga Raadinta Erayada Af Soomaaliga · Somali Word Search Book</span>
+  </div>
+
+  <div class="cover-divider"></div>
+
+  <div class="cover-subtitle">
+    15 Themed Puzzles · For All Ages · For All Families<br>
+    <span class="so">15 Halxiraale oo Mawduuc ah · Da' Walba · Qoysaska Oo Dhan</span>
+    Bilingual: English &amp; Somali · Afka Ingiriis &amp; Af Soomaali
+  </div>
+
+  <div class="cover-diff-row">
+    <span class="cdiff e">
+      <span class="en">⬤ Easy · Puzzles 1, 3–5</span>
+      <span class="so">Fudud · Halxiraalaha 1, 3–5</span>
+    </span>
+    <span class="cdiff m">
+      <span class="en">⬤ Medium · Puzzles 6–10</span>
+      <span class="so">Dhexdhexaad · Halxiraalaha 6–10</span>
+    </span>
+    <span class="cdiff h">
+      <span class="en">⬤ Hard · Puzzles 2, 11–15</span>
+      <span class="so">Adag · Halxiraalaha 2, 11–15</span>
+    </span>
+  </div>
+
+  <div class="cover-tags">
+    <div class="ctag">Family<span class="so">Qoyska</span></div>
+    <div class="ctag">Home<span class="so">Guriga</span></div>
+    <div class="ctag">Numbers<span class="so">Tirooyin</span></div>
+    <div class="ctag">Colours<span class="so">Midabada</span></div>
+    <div class="ctag">School<span class="so">Dugsiga</span></div>
+    <div class="ctag">Transport<span class="so">Gaadiidka</span></div>
+    <div class="ctag">Food<span class="so">Cuntada</span></div>
+    <div class="ctag">Body<span class="so">Jirka</span></div>
+    <div class="ctag">Animals<span class="so">Xayawaanka</span></div>
+    <div class="ctag">Health<span class="so">Caafimaadka</span></div>
+    <div class="ctag">Nature<span class="so">Dabiicada</span></div>
+    <div class="ctag">Places<span class="so">Meelaha</span></div>
+    <div class="ctag">Emotions<span class="so">Dareenka</span></div>
+    <div class="ctag">Jobs<span class="so">Shaqooyinka</span></div>
+  </div>
+
+  <!-- Cover mini-grid — spells CILMI PRESS cleverly across rows -->
+  <div class="cover-grid-wrap">
+    <div class="cover-grid">
+      <!-- Row 1: C I L M I — lit -->
+      <div class="cgc lit">C</div><div class="cgc lit">I</div><div class="cgc lit">L</div><div class="cgc lit">M</div><div class="cgc lit">I</div>
+      <div class="cgc">·</div>
+      <!-- Row 1 cont: P R E S S — lit -->
+      <div class="cgc lit">P</div><div class="cgc lit">R</div><div class="cgc lit">E</div><div class="cgc lit">S</div><div class="cgc lit">S</div>
+      <!-- Row 2: Somali filler words -->
+      <div class="cgc">H</div><div class="cgc">O</div><div class="cgc">O</div><div class="cgc">Y</div><div class="cgc">O</div>
+      <div class="cgc">A</div>
+      <div class="cgc">G</div><div class="cgc">E</div><div class="cgc">E</div><div class="cgc">L</div><div class="cgc">B</div>
+      <!-- Row 3 -->
+      <div class="cgc">W</div><div class="cgc">A</div><div class="cgc">L</div><div class="cgc">A</div><div class="cgc">A</div>
+      <div class="cgc">L</div>
+      <div class="cgc">D</div><div class="cgc">A</div><div class="cgc">Y</div><div class="cgc">A</div><div class="cgc">X</div>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    Cilmi Press © 2026 &nbsp;·&nbsp; All Rights Reserved
+    <span class="so">Dhammaan Xuquuqda Way Dhowran Tahay</span>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════
+     COPYRIGHT / PIRACY PAGE
+═══════════════════════ -->
+<div class="page">
+<div class="piracy-page">
+  <div class="piracy-icon">⚠️</div>
+
+  <div class="piracy-title">Copyright Notice</div>
+  <div class="piracy-title-so">Ogeysiiska Xuquuqda Daabacaadda</div>
+  <div class="piracy-subtitle">Cilmi Press © 2026 &nbsp;·&nbsp; All Rights Reserved · Dhammaan Xuquuqda Way Dhowran Tahay</div>
+  <div class="piracy-divider"></div>
+
+  <div class="piracy-box">
+
+    <div class="piracy-row">
+      <div class="piracy-col-en">
+        <strong>This book is protected by international copyright law.</strong>
+        All puzzles, text, designs, and content are the exclusive intellectual property of Cilmi Press.
+      </div>
+      <div class="piracy-col-so">
+        <strong>Kitaabkan waxaa ilaalinaya sharciga xuquuqda daabacaadda ee caalamiga ah.</strong>
+        Dhammaan xididyada, qoraalada, naqshaddaha, iyo waxyaabaha kale waxay gaar u yihiin Cilmi Press.
+      </div>
+    </div>
+
+    <div class="piracy-row">
+      <div class="piracy-col-en">
+        You are <strong>not permitted</strong> to copy, scan, photograph, reproduce, distribute, share digitally, or resell any part of this book without written permission from the publisher.
+      </div>
+      <div class="piracy-col-so">
+        <strong>Oggolaansho la'aanteed</strong> waa mamnuuc in aad nuqul ka sameyso, sawir ka qaadato, skaannarka ku sameyso, dib u soo saarto, qaybiso, internetka ku wadaagto, ama iibiso qayb kasta oo buuggan ah ee fasax qoraal ah la'aanteed.
+      </div>
+    </div>
+
+    <div class="piracy-row">
+      <div class="piracy-col-en">
+        This includes: sharing PDF scans online, uploading to file-sharing websites, printing copies for sale, or using any content for commercial purposes.
+      </div>
+      <div class="piracy-col-so">
+        Tan waxaa ku jira: PDF internetka ku wadaagista, websaydiyada faaylasha lagu wadaago, daabacaadda koobiyada loogu talagalay iibinta, ama isticmaalka ganacsi.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="piracy-legal">
+    <div class="piracy-legal-en">
+      Unauthorised reproduction or distribution of this copyrighted work is illegal and may result in civil and criminal penalties including fines and imprisonment.
+      <strong>© 2026 Cilmi Press. All rights reserved.</strong>
+    </div>
+    <div class="piracy-legal-so">
+      Nuqul ka sameysta ama qaybinta shaqadan xuquuqdooda dhowran tahay, iyada oon fasax la helin, waa sharci-darro waxayna keeni kartaa ganaaxyo iyo xabsi.
+      <strong>© 2026 Cilmi Press. Dhammaan xuquuqda way dhowran tahay.</strong>
+    </div>
+  </div>
+
+  <div class="piracy-contact">
+    To report piracy or request permissions, contact us through our website.
+    <span class="so">Burcad badeedka warce u dir ama fasax u codsado, naga soo xiriir websaydhayaga.</span>
+  </div>
+  <div class="piracy-brand">Cilmi Press</div>
+</div>
+</div>
+
+<!-- ═══════════════════════
+     DIALECT NOTICE PAGE
+═══════════════════════ -->
+<div class="page">
+<div class="piracy-page" style="background:var(--cream);">
+  <div style="position:absolute;top:0;left:0;right:0;height:11px;background:var(--terracotta);"></div>
+  <div style="position:absolute;bottom:0;left:0;right:0;height:7px;background:var(--sand);"></div>
+  <div class="piracy-icon">🗣️</div>
+  <div class="piracy-title" style="color:var(--ink);">A Note on Dialect</div>
+  <div class="piracy-title-so" style="color:var(--ink-mid);opacity:0.8;">Faallo ku saabsan Lahjadda</div>
+  <div class="piracy-subtitle" style="color:var(--muted);">Cilmi Press · Inclusive by design</div>
+  <div class="piracy-divider" style="background:var(--terracotta);"></div>
+  <div class="piracy-box">
+    <div class="piracy-row">
+      <div class="piracy-col-en"><strong>Somali is spoken across many communities</strong> — in Somalia, Somaliland, the Somali Region of Ethiopia, Djibouti, Kenya, and diaspora communities worldwide. Like all living languages, it has natural variations in vocabulary, pronunciation, and spelling.</div>
+      <div class="piracy-col-so"><strong>Af Soomaali waxaa ku hadla bulshooyinka badan</strong> — Soomaaliya, Somaliland, Gobolka Soomaalida ee Itoobiya, Jabuuti, Kenya, iyo bulshooyinka dibadda. Sida luuqadaha nool oo dhan, waxaa jira kala duwanaan dabiici ah oo ku jirta ereybuurinta, codaynta, iyo habeynta.</div>
+    </div>
+    <div class="piracy-row">
+      <div class="piracy-col-en">The words in this book reflect <strong>standard written Somali</strong> and aim to be widely understood across all communities. Where a word may be known differently in your community, <strong>we encourage you to discuss the variation</strong> — that conversation is part of learning.</div>
+      <div class="piracy-col-so">Erayada buuggan waxay ka muujinayaan <strong>Af Soomaaliga qoraalka caadiga ah</strong>. Haddii erayo lagu yaqaan si kala duwan bulshadaada, <strong>waxaan kugu dhiiringelinaynaa inaad ka hadashid kala duwanaanshaha</strong> — wada-hadalkaasi waa qayb ka mid ah baridda.</div>
+    </div>
+    <div class="piracy-row">
+      <div class="piracy-col-en"><strong>This book belongs to everyone</strong> who wants to connect with Somali language and culture — whether you grew up speaking it, are learning it for the first time, or want to share it with someone you love.</div>
+      <div class="piracy-col-so"><strong>Buuggan wuxuu u leeyahay qof kasta</strong> oo doonaya in uu xiriir la sameeyo Af Soomaali iyo dhaqanka Soomaalida — haddaad ku kortay adigoo ku hadlaya, haddaad markii hore baranayso, ama haddaad doonayso inaad la wadaagto qof aad jeceshahay.</div>
+    </div>
+  </div>
+  <div class="piracy-legal" style="background:rgba(194,97,58,0.06);border-color:rgba(194,97,58,0.22);">
+    <div class="piracy-legal-en" style="color:var(--terracotta);">If you spot a word that feels unfamiliar for your community, we would love to hear from you. Language grows when we learn from each other.</div>
+    <div class="piracy-legal-so" style="color:var(--terracotta);opacity:0.85;">Haddaad arki weyddo erayo aan la qaban karin bulshadaada, waxaan jeclaan lahayn inaad noo soo dirtid. Luuqaddu waxay kobcaysaa marka aan wada baran nahay.</div>
+  </div>
+
+  <!-- Mistakes notice -->
+  <div class="piracy-legal" style="background:rgba(44,40,37,0.04);border-color:rgba(44,40,37,0.12);margin-top:12px;">
+    <div class="piracy-legal-en" style="color:var(--text-mid);font-size:10px;">
+      <strong>Found a mistake?</strong> We are sorry — despite our best efforts, errors can happen. Please contact us and we will correct it. Your feedback makes every edition better.
+    </div>
+    <div class="piracy-legal-so" style="color:var(--text-mid);font-size:10px;opacity:0.85;margin-top:6px;">
+      <strong>Ma heshay khalad?</strong> Waan ka xumahay — inkastoo aannu si fiican u isku deyno, khaladaad waxay dhici karaan. Fadlan nala soo xiriir oo aannu saxnee. Jawaab-celinkaagu wuxuu ka dhigaa daabacaadda xigta mid ka wanaagsan.
+    </div>
+  </div>
+
+  <div class="piracy-brand" style="margin-top:22px;color:var(--muted);">Cilmi Press · cilmipress.com</div>
+</div>
+</div>
+
+<!-- ═══════════════════════
+     HOW TO PLAY PAGE
+═══════════════════════ -->
+<div class="page">
+<div class="piracy-page" style="background:var(--cream);">
+  <div style="position:absolute;top:0;left:0;right:0;height:11px;background:var(--terracotta);"></div>
+  <div style="position:absolute;bottom:0;left:0;right:0;height:7px;background:var(--sand);"></div>
+
+  <div class="piracy-icon">📖</div>
+  <div class="piracy-title" style="color:var(--ink);font-size:26px;">How to Play</div>
+  <div class="piracy-title-so" style="color:var(--ink-mid);opacity:0.8;">Sida Loo Ciyaaro</div>
+  <div class="piracy-divider" style="background:var(--terracotta);"></div>
+
+  <div class="piracy-box" style="max-width:155mm;">
+    <div class="piracy-row">
+      <div class="piracy-col-en">
+        <strong>1. Read the word bank first.</strong><br>
+        Before searching, read every word and its translation. Knowing what you are looking for makes it much easier to find.
+      </div>
+      <div class="piracy-col-so">
+        <strong>1. Marka hore akhri xaashida erayada.</strong><br>
+        Kahor raadinta, akhri erayo kasta iyo turjumaadooda. Ogaanshaha waxa aad raadinayso ayaa fududeyneysa.
+      </div>
+    </div>
+    <div class="piracy-row">
+      <div class="piracy-col-en">
+        <strong>2. Find the first letter.</strong><br>
+        Scan the grid for the first letter of the word. Then check all directions from that point — up, down, left, right, and diagonally in harder puzzles.
+      </div>
+      <div class="piracy-col-so">
+        <strong>2. Raadi xarfaha koowaad.</strong><br>
+        Fiiri shabakadda xarfaha ugu horeeya ee erayga. Ka dib hubi dhammaan jihooyin — kor, hoos, bidix, midig, iyo jihooyinka labajibaarankooda marka xididyadu adagtahay.
+      </div>
+    </div>
+    <div class="piracy-row">
+      <div class="piracy-col-en">
+        <strong>3. Circle it when you find it.</strong><br>
+        Draw a circle or line through the whole word. Cross it off the word bank so you know what is left to find.
+      </div>
+      <div class="piracy-col-so">
+        <strong>3. Goobo marka aad hesho.</strong><br>
+        Sawir goobo ama xariiq dhexda erayga ah. Ka tirtir xaashida erayada si aad u ogaato waxa hadhay in la raadiyo.
+      </div>
+    </div>
+    <div class="piracy-row">
+      <div class="piracy-col-en">
+        <strong>4. Say it out loud.</strong><br>
+        When you find a word, say it in both Somali and English. This is how you actually learn it — not just find it.
+      </div>
+      <div class="piracy-col-so">
+        <strong>4. Ku dheh kor u dheer.</strong><br>
+        Marka aad hesho erayo, ku dheh labada af — Af Soomaali iyo Ingiriis. Sidaas ayaad dhab ahaantii u baranaysaa — ma aha oo kaliya in aad hesho.
+      </div>
+    </div>
+    <div class="piracy-row" style="margin-bottom:0;">
+      <div class="piracy-col-en">
+        <strong>💡 Tip:</strong><br>
+        Start with the longest word in the word bank — longer words are actually easier to spot in the grid because they take up more space. Tick each word off as you find it.
+      </div>
+      <div class="piracy-col-so">
+        <strong>💡 Xog:</strong><br>
+        Ka bilow erayga ugu dheer ee xaashida erayada — erayada dhaadheer ayaa si fudud loogu arki karaa shabakadda sababtoo ah waxay qaataan meelo badan. Calaamadee erayo kasta marka aad hesho.
+      </div>
+    </div>
+  </div>
+
+  <!-- Medium + Hard tip — one combined box -->
+  <div style="margin-top:12px;max-width:155mm;width:100%;background:rgba(166,50,40,0.06);
+    border:1px solid rgba(166,50,40,0.18);border-radius:6px;padding:10px 16px;">
+    <div style="font-size:9px;font-weight:800;color:var(--hard);letter-spacing:1.5px;
+      text-transform:uppercase;margin-bottom:5px;">★ Medium &amp; Hard puzzles</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      <div style="font-size:10px;color:var(--text-mid);line-height:1.7;">
+        Words can run in more directions than you think. When you are stuck, find the first letter of the word — then check every direction from that point. The answer will be closer than you expect.
+      </div>
+      <div style="font-size:10px;color:var(--text-mid);line-height:1.7;
+        border-left:2px solid rgba(166,50,40,0.2);padding-left:12px;">
+        Erayadu waxay aadi karaan jihooyin badan oo aad ka filayso. Marka aad ku xidnaato, raadi xarfaha koowaad ee erayga — ka dib hubi jihooyin kasta. Jawaabtu waxay noqon doontaa kuwo aad u dhow.
+      </div>
+    </div>
+  </div>
+
+  <div class="piracy-brand" style="margin-top:20px;color:var(--muted);">Cilmi Press · cilmipress.com</div>
+</div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════
+//  PUZZLE DATA — verified Somali spellings
+// ═══════════════════════════════════════════════════════
+const PUZZLES = [
+
+  // ── P1: FAMILY (EASY) ─────────────────────────────────
+  // QOYS+REER replaced with INAABTI+INAADEER (cousins), grouped logically
+  {num:1,somali:"QOYSKA",english:"Family",difficulty:"easy",
+   words:  ["HOOYO","AABO","AYEEYO","AWOOWE","CUNUG","WIIL","GABAR","ILMO","WALAAL","INAABTI","INAADEER","ADEER","EEDDO","ABTI","HABARYAR"],
+   display:["HOOYO","AABO","AYEEYO","AWOOWE","CUNUG","WIIL","GABAR","ILMO","WALAAL","INAABTI *","INAADEER *","ADEER *","EEDDO *","ABTI *","HABARYAR *"],
+   clues:  ["Mother","Father","Grandmother","Grandfather","Baby","Boy","Girl","Child","Sibling","Maternal Cousin","Paternal Cousin","Uncle (pat.)","Aunt (pat.)","Uncle (mat.)","Aunt (mat.)"]},
+
+  // ── P2: THE HOME (EASY) ───────────────────────────────
+  {num:2,somali:"GURIGA",english:"The Home",difficulty:"easy",
+   words:  ["QOL","JIKO","MUSQUL","DAAH","FADHI","DAAQAD","DARBI","SAQAF","SAGXAD","ARMAAJO","BARKIN","BUSTE","BEER","MURAAYAD","KATABBAAN"],
+   clues:  ["Room","Kitchen","Toilet / Bathroom","Curtain","Sitting Room","Window","Wall","Ceiling","Floor","Wardrobe","Pillow","Blanket","Garden","Mirror","Bedroom"]},
+
+  {num:3,somali:"TIROOYIN",english:"Numbers",difficulty:"easy",
+   words:  ["KOW","LABO","SADDEX","AFAR","SHAN","LIX","TODDOBA","SIDEED","SAGAAL","TOBAN","KONTON","BOQOL","MALYUUN","BILYAN","TIRI"],
+   clues:  ["One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Fifty","Hundred","Million","Billion","Count"]},
+
+  // ── P4: COLOURS (EASY) ────────────────────────────────
+  // LACAG→NAXAAS bronze, CAGAARAN removed, QALIN=silver (flag for speaker)
+  // SILVER is confirmed LACAG in Somali; QALIN=pen — keep LACAG for silver
+  // Remove CAGAARAN, add NAXAAS (bronze) — 6 letters, unique
+  {num:4,somali:"MIDABADA",english:"Colours",difficulty:"easy",
+   words:  ["CAD","MADOW","GUDUUD","JAALLO","ORANJI","CAGAAR","BULUUG","BASALI","CARJAAWIIS","BUNNI","DAHAB","LACAG","NAXAAS","DAMEERI","MIDAB"],
+   clues:  ["White","Black","Red","Yellow","Orange","Green","Blue","Pink","Purple","Brown","Gold","Silver","Bronze / Copper","Grey","Colour"]},
+
+  // ── P5: SCHOOL (EASY) ─────────────────────────────────
+  {num:5,somali:"DUGSIGA",english:"School",difficulty:"easy",
+   words:  ["MACALLIN","ARDAY","DUGSI","FASAL","KURSI","MIIS","BUUG","QALIN","IMTIXAAN","CASHAR","GAL","AKHRIS","QORAAL","SABUURAD","XAALADA"],
+   clues:  ["Teacher","Student","School","Classroom","Chair","Desk / Table","Book","Pen / Pencil","Exam / Test","Lesson","Folder","Reading","Writing","Blackboard","Grade / Result"]},
+
+  // ── P6: CLOTHES (EASY — new) ──────────────────────────
+  // Best 15 from verified list — mix of men's, women's, universal
+  {num:6,somali:"DHARKA",english:"Clothes",difficulty:"medium",
+   words:  ["SHAATI","FUNAANAD","BAATI","JAAKAD","XIJAAB","SURWAAL","GOONOO","KABO","DACAS","KOOFIYAD","MASAR","JIINIS","NIGIS","MACAWIIS","DIRAC"],
+   clues:  ["Shirt","T-shirt","House Dress","Jacket","Hijab","Trousers","Skirt","Shoes","Slippers / Sliders","Hat","Scarf","Jeans","Underwear","Cloth wrap (men's)","Dress"]},
+
+  // ── P7: TRANSPORT (MEDIUM) ────────────────────────────
+  // GAADDID→MASRAX, ALAAB→NAFATO, GAADHI→BAATROOL
+  {num:7,somali:"GAADIIDKA",english:"Transport",difficulty:"medium",
+   words:  ["BAABUUR","DIYAARAD","TAREEN","TAGSI","BAASKIIL","MARKAB","BAATROOL","NAFATO","WADDO","TIGIDH","IMAATIN","BIXITAAN","MOOTO","MASRAX","RAKAAB"],
+   clues:  ["Car / Vehicle","Plane","Train","Taxi","Bicycle","Boat / Ship","Petrol","Diesel","Road","Ticket","Arrivals","Departures","Motorbike","Platform","Passenger"]},
+
+  // ── P8: FOOD (MEDIUM) ─────────────────────────────────
+  {num:8,somali:"CUNTADA",english:"Food & Drink",difficulty:"medium",
+   words:  ["BARIIS","DIGIR","ROOTI","CANJEERO","DOOLSHO","HILIB","SUQAAR","MARAQ","BOORASH","SAMBUUS","XALWO","CAANO","SHAAH","BIYO","SALIID"],
+   clues:  ["Rice","Beans","Bread","Flatbread","Dessert / Sweets","Meat","Stir-fried Meat","Broth","Porridge","Samosa","Halwa (sweet)","Milk","Tea","Water","Oil"]},
+
+  // ── P9: BODY (MEDIUM) ─────────────────────────────────
+  // KILYO=Kidneys (plural confirmed), XABADKA=The Chest (Ribcage)
+  // MINDHICIRKA = Intestines / Gut, AFKA = The Mouth
+  {num:9,somali:"JIRKA",english:"Body Parts",difficulty:"medium",
+   words:  ["MADAX","INDHO","DHEGO","SAN","ILKAHA","LUQUN","GACAN","XABADKA","CALOOL","AFKA","WADNO","KILYO","DHIIG","LAF","MINDHICIRKA"],
+   clues:  ["Head","Eyes","Ears","Nose","Teeth","Neck","Hand / Arm","The Chest","Stomach","The Mouth","Heart","Kidneys","Blood","Bone","Intestines / Gut"]},
+
+  // ── P10: ANIMALS (MEDIUM) ─────────────────────────────
+  {num:10,somali:"XAYAWAANKA",english:"Animals",difficulty:"medium",
+   words:  ["GEEL","MAROODI","GERI","FARAS","LIBAAX","EYGA","BISAD","ARI","IDO","DAMEER","KALLUUN","SHIMBIRRO","DOOFAAR","DABAGAALE","SHABEELBADEED"],
+   display:["GEEL","MAROODI","GERI","FARAS","LIBAAX","EYGA","BISAD","ARI","IDO","DAMEER","KALLUUN","SHIMBIRRO","DOOFAAR","DABAGAALE","SHABEEL BADEED *"],
+   clues:  ["Camels","Elephant","Giraffe","Horse","Lion","The Dog","Cat","Goat","Sheep","Donkey","Fish","Birds","Pig","Squirrel","Shark"]},
+
+  // ── P11: HEALTH (MEDIUM) ──────────────────────────────
+  // DAAWO (not DAWO), XANUUN (no -KA), NEEFTA=Breath, BARBAAR→CIRBAD
+  // WARQAD→SAFMAR (epidemic), remove "drug" from medicine clue
+  {num:11,somali:"CAAFIMAADKA",english:"Health & Illness",difficulty:"hard",
+   words:  ["DHAKHTAR","CISBITAAL","BUKAAN","RAAJO","DARYEEL","XANUUN","QANDHO","DHAAWAC","GAROOB","NEEFTA","DAAWO","TALLAAL","CIRBAD","BAARITAAN","SAFMAR"],
+   clues:  ["Doctor","Hospital","Patient / Sick","X-ray","Care","Pain","Fever","Injury / Wound","Recovery","Breath","Medicine","Vaccine","Syringe / Injection","Medical Examination","Epidemic / Outbreak"]},
+
+  // ── P12: NATURE (HARD) ────────────────────────────────
+  // KAYNTA = The Forest / Bush
+  {num:12,somali:"CIMILADA IYO DABEECADDA",english:"Weather & Nature",difficulty:"hard",
+   words:  ["ROOB","DABAYL","QORRAX","DAYAX","XIDDIG","BADDA","BIRIQ","JASIIRAD","BUUR","DHULKA","GEED","UBAX","KEYNTA","MEERE","HAWO"],
+   clues:  ["Rain","Wind","Sun","Moon","Star","Sea","Lightning","Island","Mountain","The Earth","Tree","Flower","The Forest","Planet","Air"]},
+
+  // ── P13: SOMALI PLACES (HARD) ─────────────────────────
+  {num:13,somali:"MEELAHA, XUDUUDAHA, GOBOLADA",english:"Somali Places, Borders & Regions",difficulty:"hard",
+   words:  ["MUQDISHO","KISMAAYO","BAYDHABO","BORAMA","GALKACYO","HARGEYSA","BURCO","BERBERA","MAGAALO","BOOSAASO","GAROOWE","JABUUTI","WADANKA","XUDUUD","GOBOL"],
+   clues:  ["Mogadishu","Kismayo","Baidoa","Borama","Galkayo","Hargeisa","Burao","Berbera","City","Bosaso","Garoowe","Djibouti","The Country","Border","Region / Province"]},
+
+  // ── P14: EMOTIONS (HARD) ──────────────────────────────
+  {num:14,somali:"DAREENKA",english:"Emotions & Feelings",difficulty:"hard",
+   words:  ["FARXAD","JACAYL","RAJO","KALSOONI","DEGGAN","MURUG","CABSI","XANAAQ","WALWAL","NAXDIN","XISHOOD","NAXARIIS","MASAYR","DULQAAD","YAABAN"],
+   clues:  ["Happiness","Love","Hope","Confident","Calm / Peaceful","Sadness","Fear","Anger / Rage","Worry / Anxiety","Shock","Shyness","Compassion","Jealousy","Patience","Surprised"]},
+
+  // ── P15: JOBS (HARD) ──────────────────────────────────
+  // WAARDIYE=Guard/Watchman, BOOLISKA=The Police, DARAWAL (not DIRAWAL), HILIBLE replaces HEESAA
+  {num:15,somali:"SHAQOOYINKA",english:"Jobs & Professions",difficulty:"hard",
+   words:  ["GUDDOOMIYE","INJINEER","XISAABIYE","BEERALAY","TURJUME","NIJAAR","TUMAAL","RANJIILE","ROODHIILE","HILIBLE","DARAWAL","TAGSILE","WAARDIYE","BOOLISKA","ABUKAATE"],
+   clues:  ["Director","Engineer","Accountant","Farmer","Translator","Carpenter","Blacksmith","Painter","Baker","Butcher","Driver","Taxi Driver","Guard / Watchman","The Police","Lawyer"]}
+];
+
+// ═══════════════════════════════════════════════════════
+//  GRID ENGINE
+// ═══════════════════════════════════════════════════════
+const GS=20;
+const DIRS_E=[[0,1],[1,0]];
+// Medium: progressive P7→P11
+// MEDIUM P6→P10: genuine ramp — each puzzle noticeably harder
+// P6: forward+backward horizontal/vertical only — mildly tricky
+const DIRS_M1=[[0,1],[0,-1],[1,0],[-1,0]];
+// P7: straight 2x weighted + first diagonals introduced lightly
+const DIRS_M2=[[0,1],[0,-1],[1,0],[-1,0],[0,1],[0,-1],[1,0],[-1,0],[1,1],[1,-1]];
+// P8: all 8 directions balanced
+const DIRS_M3=[[0,1],[0,-1],[1,0],[-1,0],[1,1],[1,-1],[-1,1],[-1,-1]];
+// P9: diagonals appear 2x more than straight — most words will be diagonal
+const DIRS_M4=[[0,1],[0,-1],[1,0],[-1,0],[1,1],[1,-1],[-1,1],[-1,-1],[1,1],[1,-1],[-1,1],[-1,-1]];
+// P10: diagonals 3x + reverse heavily weighted — hardest medium
+const DIRS_M5=[[0,-1],[-1,0],[1,1],[1,-1],[-1,1],[-1,-1],[1,1],[1,-1],[-1,1],[-1,-1],[0,-1],[-1,0],[1,1],[1,-1],[-1,1],[-1,-1]];
+
+// HARD P11→P15: all hard but escalating — each puzzle meaningfully harder
+// P11: all 8 balanced — hard entry point
+const DIRS_H1=[[0,1],[0,-1],[1,0],[-1,0],[1,1],[1,-1],[-1,1],[-1,-1]];
+// P12: diagonals 2x — majority of words will be diagonal
+const DIRS_H2=[[0,1],[0,-1],[1,0],[-1,0],[1,1],[1,-1],[-1,1],[-1,-1],[1,1],[1,-1],[-1,1],[-1,-1]];
+// P13: diagonals 3x + reverse — relentlessly diagonal, frequent reversal
+const DIRS_H3=[[0,-1],[-1,0],[1,1],[1,-1],[-1,1],[-1,-1],[1,1],[1,-1],[-1,1],[-1,-1],[0,-1],[-1,0],[1,-1],[-1,1]];
+// P14: diagonals 4x + reverse 3x — nearly no forward straight words
+const DIRS_H4=[[0,-1],[-1,0],[1,1],[1,-1],[-1,1],[-1,-1],[1,1],[1,-1],[-1,1],[-1,-1],[1,1],[1,-1],[-1,1],[-1,-1],[0,-1],[-1,0]];
+// P15: brutal maximum — exclusively diagonal and reverse, no forward straight
+const DIRS_H5=[[1,-1],[-1,1],[-1,-1],[1,1],[1,-1],[-1,1],[-1,-1],[0,-1],[-1,0],[1,1],[1,-1],[-1,1],[-1,-1],[1,1],[1,-1],[-1,1],[-1,-1],[-1,-1]];
+
+const FILL_EASY='AAOOOIIXDHGWCRQBLNSMAAOOI';
+const FILL_HARD='AAOOIIXAADHHOOAAWAAXIIGOOC';
+
+function getDirs(diff,num){
+  if(diff==='easy')return DIRS_E;
+  if(diff==='medium'){
+    if(num<=6) return DIRS_M1;
+    if(num===7) return DIRS_M2;
+    if(num===8) return DIRS_M3;
+    if(num===9) return DIRS_M4;
+    return DIRS_M5;
+  }
+  // hard
+  if(num<=11)return DIRS_H1;
+  if(num===12)return DIRS_H2;
+  if(num===13)return DIRS_H3;
+  if(num===14)return DIRS_H4;
+  return DIRS_H5;
+}
+function makeGrid(){return Array.from({length:GS},()=>Array(GS).fill(''));}
+function canPlace(g,w,r,c,dr,dc){
+  for(let i=0;i<w.length;i++){
+    const nr=r+dr*i,nc=c+dc*i;
+    if(nr<0||nr>=GS||nc<0||nc>=GS)return false;
+    if(g[nr][nc]!==''&&g[nr][nc]!==w[i])return false;
+  }return true;
+}
+function place(g,w,r,c,dr,dc){
+  const pos=[];
+  for(let i=0;i<w.length;i++){const nr=r+dr*i,nc=c+dc*i;g[nr][nc]=w[i];pos.push([nr,nc]);}
+  return pos;
+}
+function buildPuzzle(words,diff,num){
+  const dirs=getDirs(diff,num||0),g=makeGrid(),placed=[],failed=[];
+  const fill=diff==='hard'?FILL_HARD:FILL_EASY;
+  for(const w of [...new Set(words)]){
+    let ok=false;
+    for(let t=0;t<600;t++){
+      const[dr,dc]=dirs[Math.floor(Math.random()*dirs.length)];
+      const r=Math.floor(Math.random()*GS),c=Math.floor(Math.random()*GS);
+      if(canPlace(g,w,r,c,dr,dc)){placed.push({word:w,positions:place(g,w,r,c,dr,dc)});ok=true;break;}
+    }
+    if(!ok){
+      let found=false;
+      outer:for(let r=0;r<GS;r++)for(let c=0;c<GS;c++)for(const[dr,dc]of dirs)
+        if(canPlace(g,w,r,c,dr,dc)){placed.push({word:w,positions:place(g,w,r,c,dr,dc)});found=true;break outer;}
+      if(!found)failed.push(w);
+    }
+  }
+  for(let r=0;r<GS;r++)for(let c=0;c<GS;c++)
+    if(!g[r][c])g[r][c]=fill[Math.floor(Math.random()*fill.length)];
+  if(failed.length>0){
+    const banner=document.createElement('div');
+    banner.style.cssText='position:fixed;top:0;left:0;right:0;background:#A63228;color:white;padding:12px 20px;font-weight:800;font-size:13px;z-index:9999;text-align:center;';
+    banner.textContent='ERROR: Words missing from grid: '+failed.join(', ')+'. Please refresh.';
+    document.body.appendChild(banner);
+    console.error('PLACEMENT FAILURE:',failed);
+  }
+  return{g,placed,failed};
+}
+function renderGrid(g,hl){
+  const s=new Set(hl?hl.map(([r,c])=>`${r},${c}`):[]);
+  let h='<div class="grid-branded"><table class="grid">';
+  for(let r=0;r<GS;r++){h+='<tr>';
+    for(let c=0;c<GS;c++)h+=`<td${s.has(`${r},${c}`)?' class="hl"':''}>${g[r][c]}</td>`;
+    h+='</tr>';}
+  return h+'</table></div>';
+}
+
+// Open book + magnifier logo (small version for header)
+function logoSVG(sz,op){
+  return `<svg width="${sz}" height="${Math.round(sz*0.72)}" viewBox="0 0 100 72" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:${op}">
+    <path d="M50 12 Q30 8 10 14 L10 60 Q30 54 50 58 Z" fill="#E8DDD0"/>
+    <path d="M50 12 Q70 8 90 14 L90 60 Q70 54 50 58 Z" fill="#D9CFC4"/>
+    <line x1="50" y1="10" x2="50" y2="60" stroke="#FAF7F3" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="18" y1="26" x2="44" y2="24" stroke="#FAF7F3" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+    <line x1="18" y1="33" x2="44" y2="31" stroke="#FAF7F3" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+    <line x1="18" y1="40" x2="44" y2="38" stroke="#FAF7F3" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+    <path d="M10 60 Q50 68 90 60" stroke="#D9CFC4" stroke-width="1.5" fill="none" opacity="0.7" stroke-linecap="round"/>
+    <circle cx="72" cy="20" r="9" stroke="#E8DDD0" stroke-width="2" fill="rgba(250,247,243,0.3)"/>
+    <line x1="78.5" y1="26.5" x2="84" y2="32" stroke="#E8DDD0" stroke-width="2" stroke-linecap="round"/>
+  </svg>`;
+}
+
+
+// Asterisk note — words that appear without spaces in the grid
+const ASTERISK_WORDS = ['MAHAD SANID','NABAD GELYO','SOO DHAWOOW','ADEER','EEDDO','ABTI'];
+
+function wbank(puzzle){
+  const hasAst = puzzle.display && puzzle.display.some(d => d && d.includes('*'));
+  // Only show asterisk footnote for puzzle 7 (LIBAAX BADEED) not puzzle 2
+  const showAstFootnote = hasAst && puzzle.num !== 2;
+  const items=puzzle.words.map((w,i)=>{
+    const displayWord = (puzzle.display && puzzle.display[i]) ? puzzle.display[i] : w;
+    return `<div class="wpair"><span class="wpair-so">${displayWord}</span><span class="wpair-en">${puzzle.clues[i]||w}</span></div>`;
+  }).join('');
+  const footnote = showAstFootnote ? `<div class="wbank-footer">
+    <span class="ast">*</span> Erayahan laba erayo ah buuggu wuxuu ku tuso erayo la xidid ah oo kala sooc la'aan ah (Af Soomaali) &nbsp;·&nbsp;
+    <span class="ast">*</span> Words marked with * appear as one continuous word in the grid (English)
+  </div>` : '';
+  const famFootnote = puzzle.num===1 ? `<div class="wbank-footer">
+    <span class="ast">†</span> <strong>Pat.</strong> = Abtiyaha aabbaha (Paternal — father's side) &nbsp;·&nbsp; <strong>Mat.</strong> = Abtiyaha hooyo (Maternal — mother's side)
+  </div>` : '';
+  return `<div class="wbank">
+    <div class="wbank-title">Erayada La Raadsanayo · Word Bank</div>
+    <div class="wbank-wm">PROPERTY OF CILMI PRESS &nbsp;·&nbsp; HANTIDA CILMI PRESS</div>
+    <div class="wbank-items">${items}</div>${footnote}${famFootnote}</div>`;
+}
+
+
+function footer(){
+  return `<div class="pfooter">
+    <span class="pfooter-text">© Cilmi Press 2026 &nbsp;·&nbsp; Nuqulkan waa la iibsaday · This copy was purchased &nbsp;·&nbsp; Daabacaad sharci darro ah waa mamnuuc · No piracy</span>
+    <span class="pfooter-logo">CILMI PRESS</span>
+  </div>`;
+}
+
+
+function dlabels(d){
+  const en = d==='easy'?'Easy':d==='medium'?'Medium':'Hard ★';
+  const so = d==='easy'?'Fudud':d==='medium'?'Dhexdhexaad':'Adag ★';
+  return `<div class="pdiff-bubble ${d}"><span class="dso">${so}</span><span class="den">${en}</span></div>`;
+}
+
+const built=[];
+PUZZLES.forEach(p=>{
+  const{g,placed}=buildPuzzle(p.words,p.difficulty,p.num);
+  built.push({p,g,placed});
+  const pg=document.createElement('div');pg.className='page';
+  pg.innerHTML=`
+    <div class="pheader">
+      <div class="pheader-left">
+        <span class="pheader-halxiraale">Halxiraale ${p.num} / 15</span>
+        <span class="pheader-puzzle">Puzzle ${p.num} / 15</span>
+      </div>
+      <div class="ptitle">
+        <div class="ptitle-so">${p.somali}</div>
+        <div class="ptitle-en">${p.english}</div>
+      </div>
+      <div class="pheader-right">${dlabels(p.difficulty)}</div>
+    </div>
+    <div class="pbody">
+      <div class="grid-wrap">${renderGrid(g,null)}</div>
+      ${wbank(p)}
+    </div>
+    ${footer()}`;
+  document.body.appendChild(pg);
+});
+
+// ── BACK PAGE ────────────────────────────────────────
+const backPage = document.createElement('div');
+backPage.className = 'page';
+backPage.innerHTML = `
+<div class="back-page">
+
+  <!-- Logo mark -->
+  <div class="back-logo">
+    <svg width="80" height="84" viewBox="0 0 220 230">
+      <circle cx="112" cy="76" r="68" fill="rgba(255,255,255,0.06)"/>
+      <circle cx="110" cy="74" r="68" fill="none" stroke="rgba(194,97,58,0.5)" stroke-width="1"/>
+      <path d="M110 44 Q127 40 149 45 L149 102 Q127 98 110 102 Z" fill="rgba(194,97,58,0.25)"/>
+      <path d="M110 44 Q127 40 149 45 L149 102 Q127 98 110 102 Z" fill="none" stroke="rgba(232,221,208,0.2)" stroke-width="1.4" stroke-linejoin="round"/>
+      <path d="M110 44 Q93 40 71 45 L71 102 Q93 98 110 102 Z" fill="rgba(232,221,208,0.08)"/>
+      <path d="M110 44 Q93 40 71 45 L71 102 Q93 98 110 102 Z" fill="none" stroke="rgba(232,221,208,0.7)" stroke-width="3" stroke-linejoin="round"/>
+      <line x1="80" y1="58" x2="104" y2="57" stroke="#C2613A" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/>
+      <line x1="80" y1="68" x2="104" y2="67" stroke="#C2613A" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/>
+      <line x1="80" y1="78" x2="104" y2="77" stroke="#C2613A" stroke-width="1.6" stroke-linecap="round" opacity="0.42"/>
+      <line x1="80" y1="88" x2="97"  y2="87" stroke="#C2613A" stroke-width="1.6" stroke-linecap="round" opacity="0.25"/>
+      <path d="M71 102 Q110 112 149 102" stroke="rgba(232,221,208,0.2)" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <line x1="110" y1="43" x2="110" y2="103" stroke="#C2613A" stroke-width="4.5" stroke-linecap="round" opacity="0.9"/>
+      <path d="M110 44 A20 20 0 0 1 110 84" stroke="#C2613A" stroke-width="4.5" fill="none" stroke-linecap="round" opacity="0.9"/>
+    </svg>
+  </div>
+
+  <div class="back-title">A message from Cilmi Press</div>
+  <div class="back-title-so">Fariin ka Cilmi Press</div>
+  <div class="back-divider"></div>
+
+  <div class="back-message">
+    <div class="back-message-row">
+      <div class="back-col-en">
+        <strong>Thank you for supporting this book.</strong>
+        Cilmi Press is a small independent publisher built to keep Somali language and culture alive — for our children, our communities, and anyone who wants to learn.
+      </div>
+      <div class="back-col-so">
+        <strong>Mahadsanid taageeradaada buuggan.</strong>
+        Cilmi Press waa daabacaad madax-bannaan oo yar oo loogu talagalay in Af Soomaali iyo dhaqanka la ilaaliyo — caruurteena, bulshadayada, iyo qof kasta oo baranaya.
+      </div>
+    </div>
+    <div class="back-message-row">
+      <div class="back-col-en">
+        When you share this book without permission, you are not just breaking the law — <strong>you are taking from the very community this book was made to serve.</strong>
+        Every purchase funds the next book.
+      </div>
+      <div class="back-col-so">
+        Marka aad buuggan wadaagto oggolaansho la'aanteed, sharci kama jebinaysid oo keliya — <strong>waad ka qaadaysaa bulshadaas buugganaan loogu sameeyn.</strong>
+        Iibsashada kasta waxay maalgalaysaa buugga xiga.
+      </div>
+    </div>
+    <div class="back-message-row">
+      <div class="back-col-en">
+        If you love this book, <strong>buy a copy for someone else.</strong>
+        That is how we grow.
+      </div>
+      <div class="back-col-so">
+        Haddaad buuggan jeceshahay, <strong>u gado qof kale nuqul.</strong>
+        Sidaas ayaannu u kobcaynaa.
+      </div>
+    </div>
+  </div>
+
+  <div class="back-slogan">Where your roots come back to life</div>
+
+  <!-- Review request -->
+  <div class="back-message" style="margin-top:16px;margin-bottom:12px;">
+    <div class="back-message-row">
+      <div class="back-col-en">
+        ⭐ <strong>Please leave us a review.</strong>
+        It is how we know what we are doing well and what we need to improve. Every review — big or small — helps us make better books for this community.
+      </div>
+      <div class="back-col-so">
+        ⭐ <strong>Fadlan noo akhri dib-u-eegis.</strong>
+        Taasi waa sida aannu u garanno waxa aan si fiican u qabanno iyo waxa aan wax ka beddelno. Dib-u-eegis kasta — weyn ama yar — waxay naga caawisaa in aannu buugag ka wanaagsan u sameyno bulshadan.
+      </div>
+    </div>
+  </div>
+
+  <div class="back-footer-brand">Cilmi Press · cilmipress.com · © 2026</div>
+
+</div>`;
+document.body.appendChild(backPage);
+
+built.forEach(({p,g,placed})=>{
+  const allHL=placed.flatMap(x=>x.positions);
+  const dl = dlabels(p.difficulty);
+  const pg=document.createElement('div');pg.className='page';
+  pg.innerHTML=`
+    <div class="aheader">
+      <div class="pheader-left">
+        <span class="pheader-halxiraale">Halxiraale ${p.num} / 15</span>
+        <span class="pheader-puzzle">Puzzle ${p.num} / 15</span>
+      </div>
+      <div class="ptitle">
+        <div class="atitle-so">${p.somali}</div>
+        <div class="atitle-sub">${p.english} — Fure / Answer Key</div>
+      </div>
+      <div class="pheader-right">${dlabels(p.difficulty)}</div>
+    </div>
+    <div class="pbody">
+      <div class="grid-wrap">${renderGrid(g,allHL)}</div>
+      ${wbank(p)}
+    </div>
+    ${footer()}`;
+  document.body.appendChild(pg);
+});
+</script>
+</body>
+</html>
